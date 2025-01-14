@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% block title %}Login Required{% endblock %}
+{% block content %}
+{% load static %}
+
+<header class="py-8 py-md-11" style="background-image: none;">
+    <div class="container text-center py-xl-2">
+        <h1 class="display-4 fw-semi-bold mb-0">Login Required</h1>
+        <nav aria-label="breadcrumb">
+            <h5>You have to log in first for accessing event details</h5>
+        </nav>
+        <a href="{% url 'guest_login' %}" class="btn btn-success" style="width:20%;">Login</a>
+    </div>
+</header>
+
+{% endblock %}

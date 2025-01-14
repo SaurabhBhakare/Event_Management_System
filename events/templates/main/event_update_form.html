@@ -1,0 +1,64 @@
+{% extends 'app/base.html' %}
+{% block title %}Update Event{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+  {% include 'component/msg.html' %}
+  <div class="card shadow">
+    <div class="card-header bg-warning text-white">
+      <h3 class="text-center mb-0">Update Event</h3>
+    </div>
+    <div class="card-body">
+      <form id="updateEventForm" method="POST" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="eventName" class="form-label">Event Name</label>
+          <input type="text" class="form-control" id="eventName" name="eventName" value="{{ event.name }}" required>
+        </div>
+        <div class="mb-3">
+          <label for="eventCategory" class="form-label">Event Category</label>
+          <select class="form-control" id="eventCategory" name="eventCategory" required>
+            {% for category in categories %}
+            <option value="{{ category.id }}" {% if category.id == event.category.id %}selected{% endif %}>
+              {{ category.name }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="eventStartDate" class="form-label">Event Start Date</label>
+          <input type="date" class="form-control" id="eventStartDate" name="eventStartDate" 
+                 value="{{ event.start_date|date:'Y-m-d' }}" required>
+          <input type="time" class="form-control" id="eventStartTime" name="eventStartTime"
+                 value="{{ event.start_date|time:'H:i' }}">
+        </div>
+        <div class="mb-3">
+          <label for="eventEndDate" class="form-label">Event End Date</label>
+          <input type="date" class="form-control" id="eventEndDate" name="eventEndDate" 
+                 value="{{ event.end_date|date:'Y-m-d' }}" required>
+          <input type="time" class="form-control" id="eventEndTime" name="eventEndTime"
+                 value="{{ event.end_date|time:'H:i' }}">
+        </div>
+        <div class="mb-3">
+          <label for="priority" class="form-label">Priority</label>
+          <input type="text" class="form-control" id="priority" name="priority" value="{{ event.priority }}" required>
+        </div>
+        <div class="mb-3">
+          <label for="eventDescription" class="form-label">Event Description</label>
+          <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3">{{ event.description }}</textarea>
+        </div>
+        <div class="mb-3">
+          <label for="eventLocation" class="form-label">Event Location</label>
+          <input type="text" class="form-control" id="eventLocation" name="eventLocation" value="{{ event.location }}" required>
+        </div>
+        <div class="mb-3">
+          <label for="eventOrganizer" class="form-label">Event Organizer</label>
+          <input type="text" class="form-control" id="eventOrganizer" name="eventOrganizer" value="{{ event.organizer }}" required>
+        </div>
+        <button type="submit" class="btn btn-warning w-100">Update Event</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

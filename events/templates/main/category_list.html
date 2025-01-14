@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% block title %}Category List{% endblock %}
+{% block content %}
+
+
+<div class="container mt-5">
+  <div class="text-center">
+    <h2>Categories</h2>
+  </div>
+  <br>
+
+  <a href="{% url 'create_category' %}" class="btn btn-primary mb-3">Create Category</a> <!-- Button to create category -->
+  <a href="{% url 'event_list' %}" class="btn btn-info mb-3">View Event List</a> <!-- Button to view event chart -->
+  {% include 'component/msg.html' %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th> <!-- Column for actions -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in categories %}
+        <tr>
+          <td>
+            <p>{{ category.name }}</p>
+          </td>
+          <td>
+            <form method="post" action="{% url 'delete_category' category.pk %}" style="display: inline;">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<!-- Bootstrap JS (Optional - for certain Bootstrap features like modals) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock %}
