@@ -1,56 +1,56 @@
+The Event Management System is a web application designed to streamline the process of managing events, from creation to execution. This project incorporates a responsive front-end built with HTML, JavaScript, and Bootstrap, a robust back-end powered by Python with Django, and SQLite3 for the database.
+
 Features
-Event Creation and Management: Admins can create, update, and delete events, specifying details such as date, time, venue, and description.
-User Registration: Users can register for events, providing necessary personal information.
-Ticket Booking: Users can book tickets for events, with options for different ticket types and quantities.
+  User registration and authentication
+  Event creation and management
+  User-friendly interface with Bootstrap
+  Dynamic content rendering with JavaScript
+  Secure data handling with Django
+  Persistent data storage with SQLite3
 
-Admin Panel: A secure admin interface for managing events, users, and bookings.
-
-Technologies Used
-Frontend: HTML, CSS, JavaScript
-Backend: Python
-Database: SQLlite3
 Installation
-  1.Clone the Repository:
-  bash
-  git clone https://github.com/SaurabhBhakare/Event_Management_System.git
+  Clone the repository:
+    git clone https://github.com/SaurabhBhakare/Event_Management_System.git
+    cd Event_Management_System  
+
+  Set up a virtual environment:
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
   
-  2.Set Up the Server:
-  Ensure you have a local server environment like XAMPP or WAMP installed.
-  Place the cloned repository in the server's root directory (e.g., htdocs for XAMPP).
+  Install the required packages:
+    pip install -r requirements.txt
   
-  3.Configure the Database:
-  Start the Apache and MySQL services.
-  Access phpMyAdmin via http://localhost/phpmyadmin/.
-  Create a new database named event_management.
-  Import the provided SQL file (event_management.sql) located in the repository to set up the necessary tables.
-  
-  4.Configure Database Connection:
-  Open the config.php file in the project's root directory.
-  Update the database connection parameters (host, username, password, database) to match your local setup.
-  
-  5.Access the Application:
-  Navigate to http://localhost/Event_Management_System/ in your web browser to access the user interface.
-  For admin functionalities, go to http://localhost/Event_Management_System/admin/.
+  Apply database migrations:
+    python manage.py migrate
+
+  Run the development server:
+    python manage.py runserver
 
 Usage
-Admin:
-Log in to the admin panel using the default credentials:
-Username: admin
-Password: Admin123
-Manage events, view user registrations, and handle ticket bookings.
-
-User:
-Browse available events on the homepage.
-Register for an account to book tickets.
-Log in to view and manage your bookings.
+  Open your web browser and go to http://127.0.0.1:8000/.
+  Register a new user or log in with an existing account.
+  Create, edit, and manage events.
+  Enjoy a seamless event management experience!  
 
 Contributing
-Contributions are welcome! Please fork this repository, make your changes, and submit a pull request.
+  Fork the repository.
+  
+  Create a new branch:
+    git checkout -b feature/YourFeature
+    
+  Make your changes and commit them:
+    git commit -m 'Add some feature'
+  
+  Push to the branch:
+    git push origin feature/YourFeature
+  
+  Open a pull request
 
 License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-Acknowledgements
-This project was developed as part of a learning exercise and is based on various open-source event management systems available on GitHub.
+Contact
+For any questions or inquiries, please contact Saurabh Bhakare at saurabh914691@gmail.com
 
-For any issues or inquiries, please contact Saurabh Bhakare.
+
+  
